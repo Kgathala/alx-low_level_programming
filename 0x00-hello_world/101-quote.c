@@ -4,10 +4,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+
 /**
  * main - Entry point of the program
  *
- * Return: Always 1 (indicating failure)
+ * Return: Always 1(indicating failure)
  */
 int main(void)
 {
