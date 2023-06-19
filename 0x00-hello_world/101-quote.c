@@ -1,11 +1,31 @@
-#include <stdio.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <sys/syscall.h>
+#include <string.h>
+
+#define STDERR_FILENO 2
+
 /**
- * main A c program that prints a line to the standard error
- * Return 1 (Success)
+ * custom_print - Writes a string to stderr using write system call
+ * @str: The string to be written
+ */
+void custom_print(const char *str)
+{
+	const int str_len = strlen(str);
+	syscall(SYS_write, STDERR_FILENO, str, str_len);
+}
+
+/**
+ * main - Entry point of the program
+ *
+ * Return: Always 1
  */
 int main(void)
 {
-	fput("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", stdout);
-return (1);
+	const char *message = "\"and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+
+	custom_print(message);
+
+	return 1;
 }
+
