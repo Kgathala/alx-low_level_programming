@@ -26,18 +26,3 @@ void print_sign(int n)
 		putchar('\n');
 	}
 }
-
-/**
- * main - Entry point.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	int number = -5;
-
-	print_sign(number);
-
-	return 0;
-}
-
